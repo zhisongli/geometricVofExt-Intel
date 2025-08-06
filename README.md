@@ -9,6 +9,7 @@
 ![](https://flat.badgen.net/github/last-commit/daidezhi/geometricVofExt/?&label=Last%20commit)
 ![](https://flat.badgen.net/github/stars/daidezhi/geometricVofExt/?&label=Stars)
 [![DOI](https://zenodo.org/badge/754320637.svg)](https://zenodo.org/doi/10.5281/zenodo.11212396)
+[![wakatime](https://wakatime.com/badge/user/6b903f99-c4b9-4825-90df-c379c4b8be5a/project/018d877e-d316-48ac-9cd1-fb7c60545c68.svg)](https://wakatime.com/badge/user/6b903f99-c4b9-4825-90df-c379c4b8be5a/project/018d877e-d316-48ac-9cd1-fb7c60545c68)
 
 <!-- ![](https://flat.badgen.net/github/forks/daidezhi/geometricVofExt?&label=Forks) -->
 
