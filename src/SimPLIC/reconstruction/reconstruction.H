@@ -58,6 +58,7 @@ SourceFiles
 #include "fvMesh.H"
 #include "dynamicFvMesh.H"
 #include "dynamicRefineFvMesh.H"
+#include "dynamicRefine2DFvMesh.H"
 #include "dynamicOversetFvMesh.H"
 #include "volFieldsFwd.H"
 #include "surfaceFields.H"

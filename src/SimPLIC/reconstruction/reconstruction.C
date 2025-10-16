@@ -789,7 +789,7 @@ void Foam::geometricVofExt::SimPLIC::reconstruction::reconstruct(bool forceUpdat
 
 void Foam::geometricVofExt::SimPLIC::reconstruction::mapAlphaField()
 {
-    if (!isA<dynamicRefineFvMesh>(mesh_))
+    if (!isA<dynamicRefineFvMesh>(mesh_) or !isA<dynamicRefine2DFvMesh>(mesh_))
     {
         return;
     }
@@ -798,21 +798,47 @@ void Foam::geometricVofExt::SimPLIC::reconstruction::mapAlphaField()
     {
         const scalar startTime(mesh_.time().elapsedCpuTime());
 
-        dictionary refineDict
+        IOdictionary dynamicMeshDict
         (
-            IOdictionary
+            IOobject
             (
-                IOobject
-                (
-                    "dynamicMeshDict",
-                    mesh_.time().constant(),
-                    mesh_,
-                    IOobject::MUST_READ_IF_MODIFIED,
-                    IOobject::NO_WRITE,
-                    false
-                )
-            ).optionalSubDict("dynamicRefineFvMeshCoeffs")
+                "dynamicMeshDict",
+                mesh_.time().constant(),
+                mesh_,
+                IOobject::MUST_READ_IF_MODIFIED,
+                IOobject::NO_WRITE,
+                false
+            )
         );
+
+        dictionary refineDict;
+
+        if (isA<dynamicRefineFvMesh>(mesh_))
+        {
+            refineDict =
+                dynamicMeshDict.optionalSubDict("dynamicRefineFvMeshCoeffs");
+        }
+        else
+        {
+            refineDict =
+                dynamicMeshDict.optionalSubDict("dynamicRefine2DFvMeshCoeffs");
+        }
+
+        // dictionary refineDict
+        // (
+        //     IOdictionary
+        //     (
+        //         IOobject
+        //         (
+        //             "dynamicMeshDict",
+        //             mesh_.time().constant(),
+        //             mesh_,
+        //             IOobject::MUST_READ_IF_MODIFIED,
+        //             IOobject::NO_WRITE,
+        //             false
+        //         )
+        //     ).optionalSubDict("dynamicRefineFvMeshCoeffs")
+        // );
 
         const scalar lowerRefineLevel =
             refineDict.get<scalar>("lowerRefineLevel");

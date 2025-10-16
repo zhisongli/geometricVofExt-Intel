@@ -1,5 +1,4 @@
 EXE_INC = \
-    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/SimPLIC/lnInclude \
     -I$(LIB_SRC)/phaseSystemModels/twoPhaseInter/incompressibleInterPhaseTransportModel/lnInclude \
     -I$(LIB_SRC)/phaseSystemModels/twoPhaseInter/VoFphaseIncompressibleTurbulenceModels/lnInclude \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
@@ -18,6 +17,8 @@ EXE_INC = \
     -I$(LIB_SRC)/TurbulenceModels/incompressible/lnInclude \
     -I$(LIB_SRC)/TurbulenceModels/phaseIncompressible/lnInclude \
     -I$(LIB_SRC)/transportModels/immiscibleIncompressibleTwoPhaseMixture/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/dynamicRefine2DFvMesh/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/SimPLIC/lnInclude \
     -I$(WM_PROJECT_USER_DIR)/applications/utilities/waves2Foam/src/waves2Foam/lnInclude \
     -I$(WM_PROJECT_USER_DIR)/applications/utilities/waves2Foam/src/waves2FoamGABC/lnInclude \
     -I$(WM_PROJECT_USER_DIR)/applications/utilities/waves2Foam/src/waves2FoamSampling2312/lnInclude \
@@ -50,4 +51,5 @@ EXE_LIBS = \
     -L$(WM_THIRD_PARTY_DIR)/platforms/linux64/gsl-2.7.1/lib64 \
     -lgsl \
     -lgslcblas \
-    -lSimPLIC
+    -lSimPLIC \
+    -ldynamicRefine2DFvMesh

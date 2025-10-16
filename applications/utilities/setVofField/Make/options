@@ -13,20 +13,19 @@ EXE_INC = \
     -I$(LIB_SRC)/dynamicMesh/lnInclude \
     -I$(LIB_SRC)/overset/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude \
-    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/CGALVof/lnInclude \
-    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/SimPLIC/lnInclude \
     -I$(LIB_SRC)/phaseSystemModels/twoPhaseInter/incompressibleInterPhaseTransportModel/lnInclude \
     -I$(LIB_SRC)/sampling/lnInclude \
     ${CGAL_EXACT} \
     ${CGAL_INEXACT} \
     ${CGAL_INC} \
     ${c++CGALWARN} \
+    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/CGALVof/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/SimPLIC/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/dynamicRefine2DFvMesh/lnInclude \
     -fopenmp \
     -frounding-math
 
 EXE_LIBS = \
-    -L$(FOAM_USER_LIBBIN) \
-    ${CGAL_LIBS} \
     -lfiniteVolume \
     -lfileFormats \
     -lsurfMesh \
@@ -34,7 +33,10 @@ EXE_LIBS = \
     -loverset \
     -lmeshTools \
     -lwaveModels \
+    -limmiscibleIncompressibleTwoPhaseMixture \
+    -lsampling \
+    -L$(FOAM_USER_LIBBIN) \
+    ${CGAL_LIBS} \
     -lCGALVof \
     -lSimPLIC \
-    -limmiscibleIncompressibleTwoPhaseMixture \
-    -lsampling
+    -ldynamicRefine2DFvMesh

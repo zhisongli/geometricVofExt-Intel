@@ -7,7 +7,8 @@ EXE_INC = \
     -I$(LIB_SRC)/dynamicMesh/lnInclude \
     -I$(LIB_SRC)/overset/lnInclude \
     -I$(LIB_SRC)/transportModels/interfaceProperties/lnInclude \
-    -I$(LIB_SRC)/transportModels/twoPhaseProperties/lnInclude
+    -I$(LIB_SRC)/transportModels/twoPhaseProperties/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/modules/geometricVofExt/src/dynamicRefine2DFvMesh/lnInclude
 
 
 EXE_LIBS = \
@@ -19,4 +20,5 @@ EXE_LIBS = \
     -ldynamicMesh \
     -loverset \
     -ltwoPhaseMixture \
-    -ltwoPhaseProperties
+    -ltwoPhaseProperties \
+    -ldynamicRefine2DFvMesh
