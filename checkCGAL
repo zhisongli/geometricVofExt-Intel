@@ -14,6 +14,12 @@ echo
 echo "****************************** Check CGAL ******************************"
 echo
 
+# from CFD-China. for OpenFOAM e.g., 2506
+# mkdir -p "$WM_PROJECT_DIR/wmake/rules/General" && \
+    # echo "include \$(GENERAL_RULES)/cgal" > "$WM_PROJECT_DIR/wmake/rules/General/CGAL" 
+echo "include \$(GENERAL_RULES)/cgal" > "$WM_PROJECT_DIR/wmake/rules/General/CGAL"
+
+
 if have_cgal; then
     echo_cgal
 else
